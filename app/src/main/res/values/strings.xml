@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ServiceSample</string>
+
+    <string name="service">In Android, a Service is a component that can run in the background, even if the user is not actively interacting with the app. Services can be used for tasks such as playing music, fetching data from a network, or performing long-running operations.
+
+When a Service is running, it can either run in the foreground or in the background. A Service running in the foreground is considered to be a higher priority than a Service running in the background, as it is actively visible to the user and requires their attention. For example, a music player app may run a Service in the foreground to show the current song being played in the notification bar.
+
+On the other hand, a Service running in the background is not visible to the user and does not require their attention. For example, a messaging app may run a Service in the background to receive new messages from the server.</string>
+</resources>

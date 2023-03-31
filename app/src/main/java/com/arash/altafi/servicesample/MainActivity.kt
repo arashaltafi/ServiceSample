@@ -1,16 +1,23 @@
 package com.arash.altafi.servicesample
 
 import android.Manifest
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PowerManager
 import android.widget.Toast
+import com.arash.altafi.servicesample.audioService.AudioServiceActivity
 import com.arash.altafi.servicesample.background.MyBackgroundService
+import com.arash.altafi.servicesample.databinding.ActivityMainBinding
 import com.arash.altafi.servicesample.foreground.MyForegroundService
 import com.arash.altafi.servicesample.utils.PermissionUtils
 
 class MainActivity : AppCompatActivity() {
+
+    private val binding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
 
     private val registerNotificationResult = PermissionUtils.register(this,
         object : PermissionUtils.PermissionListener {
@@ -30,9 +37,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
         requestPermissionNotification()
+
+        binding.btnAudioService.setOnClickListener {
+            startActivity(Intent(this, AudioServiceActivity::class.java))
+        }
     }
 
     private fun requestPermissionNotification() {
